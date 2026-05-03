@@ -1,34 +1,45 @@
-[Setup]
-AppId=AILABSYSTEM
-AppName=AI Lab System
-AppVersion=1.0.12
-AppPublisher=AI Lab System
-DefaultDirName={autopf}\AI Lab System
-DefaultGroupName=AI Lab System
-UninstallDisplayIcon={app}\AI Lab System.exe
-OutputDir=output
-OutputBaseFilename=AI-Lab-System-Setup-1.0.12
-Compression=lzma
-SolidCompression=yes
-WizardStyle=modern
-ArchitecturesInstallIn64BitMode=x64
-PrivilegesRequired=admin
-DisableProgramGroupPage=yes
-CloseApplications=yes
-RestartApplications=yes
-AppMutex=AILabSystemMutex
+# -*- mode: python ; coding: utf-8 -*-
 
-[Files]
-Source: "dist\AI Lab System\AI Lab System.exe"; DestDir: "{app}"; Flags: ignoreversion restartreplace
-Source: "dist\AI Lab System\update_helper.exe"; DestDir: "{app}"; Flags: ignoreversion restartreplace
-Source: "dist\AI Lab System\_internal\*"; DestDir: "{app}\_internal"; Flags: ignoreversion recursesubdirs createallsubdirs restartreplace
 
-[Icons]
-Name: "{autoprograms}\AI Lab System"; Filename: "{app}\AI Lab System.exe"
-Name: "{autodesktop}\AI Lab System"; Filename: "{app}\AI Lab System.exe"; Tasks: desktopicon
+a = Analysis(
+    ['run_app.py'],
+    pathex=[],
+    binaries=[],
+    datas=[('app/assets', 'app/assets'), ('app/data', 'app/data')],
+    hiddenimports=['reportlab.graphics.barcode.code128', 'reportlab.graphics.barcode.code39', 'reportlab.graphics.barcode.code93', 'reportlab.graphics.barcode.common', 'reportlab.graphics.barcode.usps', 'reportlab.graphics.barcode.usps4s', 'reportlab.graphics.barcode.eanbc', 'reportlab.graphics.barcode.qr', 'reportlab.graphics.barcode.ecc200datamatrix', 'cryptography', 'cryptography.fernet'],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    noarchive=False,
+    optimize=0,
+)
+pyz = PYZ(a.pure)
 
-[Tasks]
-Name: "desktopicon"; Description: "Create a desktop shortcut"; Flags: unchecked
-
-[Run]
-Filename: "{app}\AI Lab System.exe"; Description: "Launch AI Lab System"; Flags: nowait postinstall
+exe = EXE(
+    pyz,
+    a.scripts,
+    [],
+    exclude_binaries=True,
+    name='AI Lab System',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    console=False,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+    icon=['app\\assets\\app_icon.ico'],
+)
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name='AI Lab System',
+)

@@ -8,6 +8,8 @@ import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 
+from numpy import info
+
 
 @dataclass
 class UpdateInfo:
@@ -79,7 +81,7 @@ def get_update_dir() -> Path:
     Folder where downloaded update installers are stored.
     """
     appdata = Path(os.getenv("APPDATA", tempfile.gettempdir()))
-    update_dir = appdata / "AlShafaqLab" / "updates"
+    update_dir = appdata / "AILabSystem" / "updates"
     update_dir.mkdir(parents=True, exist_ok=True)
     return update_dir
 
@@ -94,7 +96,7 @@ def get_download_target(info: UpdateInfo) -> Path:
     elif info.installer_type.lower() == "zip":
         suffix = ".zip"
 
-    return get_update_dir() / f"AL-SHAFAQ-LAB-{info.latest_version}{suffix}"
+    return get_update_dir() / f"AI-Lab-System-{info.latest_version}{suffix}"
 
 
 def sha256_of_file(path: Path) -> str:
@@ -125,7 +127,7 @@ def download_file(url: str, dest: Path, progress_cb=None) -> Path:
 
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "AlShafaqLabUpdater/1.0"}
+        headers={"User-Agent": "AILabSystemUpdater/1.0"}
     )
 
     with urllib.request.urlopen(req, timeout=60) as response, tmp_dest.open("wb") as f:

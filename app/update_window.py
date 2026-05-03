@@ -253,7 +253,7 @@ class UpdateWindow(QWidget):
         current_pid = os.getpid()
 
         # Run a TEMP copy of the helper so installer can replace the real helper in Program Files
-        temp_dir = Path(tempfile.gettempdir()) / "AlShafaqLabUpdater"
+        temp_dir = Path(tempfile.gettempdir()) / "AILabSystemUpdater"
         temp_dir.mkdir(parents=True, exist_ok=True)
 
         temp_helper_exe = temp_dir / f"update_helper_{uuid4().hex}.exe"

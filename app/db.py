@@ -50,7 +50,7 @@ def get_starter_db_path() -> Path:
 
 STARTER_DB_PATH = get_starter_db_path()
 
-APP_DATA_DIR = Path(os.getenv("APPDATA", str(PROJECT_DIR))) / "AlshafaqLab"
+APP_DATA_DIR = Path(os.getenv("APPDATA", str(PROJECT_DIR))) / "AlLabSystem"
 APP_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 DB_PATH = APP_DATA_DIR / "lab.db"

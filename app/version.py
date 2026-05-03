@@ -1,3 +1,3 @@
-APP_NAME = "LAB SYSTEM"
-APP_VERSION = "1.0.12"
+APP_NAME = "AI Lab System"
+APP_VERSION = "1.0.13"
 APP_CHANNEL = "beta"

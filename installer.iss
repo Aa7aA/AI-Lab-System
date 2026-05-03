@@ -1,13 +1,13 @@
 [Setup]
 AppId=AILABSYSTEM
 AppName=AI Lab System
-AppVersion=1.0.12
+AppVersion=1.0.13
 AppPublisher=AI Lab System
 DefaultDirName={autopf}\AI Lab System
 DefaultGroupName=AI Lab System
 UninstallDisplayIcon={app}\AI Lab System.exe
 OutputDir=output
-OutputBaseFilename=AI-Lab-System-Setup-1.0.12
+OutputBaseFilename=AI-Lab-System-Setup-1.0.13
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
