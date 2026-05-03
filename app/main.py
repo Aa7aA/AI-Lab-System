@@ -1627,7 +1627,7 @@ class MainWindow(QMainWindow):
         show_blocking_child(self, self.settings_window)
 
     def check_for_updates(self):
-        manifest_url = "https://aa7aa.github.io/lab_system_update_clean/manifest.json"
+        manifest_url = "https://aa7aa.github.io/AI-Lab-System/manifest.json"
 
         try:
             identity = get_lab_identity()
